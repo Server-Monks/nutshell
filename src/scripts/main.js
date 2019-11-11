@@ -4,7 +4,7 @@
     or the dashboard should be rendered.
 */
 
-const message = "Time to build an application that gives you all the information you need in a Nutshell"
+const message = "Welcome To Nutshell"
 
 document.querySelector("#container").innerHTML = `<h1>${message}</h1>`
 
