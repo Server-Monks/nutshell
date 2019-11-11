@@ -11,6 +11,9 @@ const formHtml = formElements.loginForm()
 
 const welcome = formElements.welcomeTitle()
 
+const registration = formElements.RegForm()
+
 mainContainer.innerHTML += welcome
 
 mainContainer.innerHTML += formHtml
+mainContainer.innerHTML += registration
