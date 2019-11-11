@@ -1,13 +1,18 @@
 import formElements from "./auth/domHandler"
+import loginRegClick from "./auth/eventHandler"
+
+sessionStorage.setItem("activeUser", 1)
+
+let currentUser = sessionStorage.getItem("activeUser")
+console.log(currentUser)
 
 /*
     Import all the tools into main.js that are needed to display
     the initial UI to the user. Either the login form should appear
     or the dashboard should be rendered.
 */
-const mainContainer = document.querySelector("#container")
 
-// const formHtml = formElements.loginForm()
+const mainContainer = document.querySelector("#container")
 
 // const welcome = formElements.welcomeTitle()
 
@@ -15,12 +20,15 @@ const mainContainer = document.querySelector("#container")
 
 // mainContainer.innerHTML += welcome
 
-// mainContainer.innerHTML += formHtml
 // mainContainer.innerHTML += registration
 
 const landingPage = formElements.regButtons()
 mainContainer.innerHTML += landingPage
 
+<<<<<<< HEAD
 
 const sessionStorage.setItem("activeUser", user.id)
 console.log(sessionStorage)
+=======
+// loginRegClick()
+>>>>>>> master
