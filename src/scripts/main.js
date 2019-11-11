@@ -18,5 +18,9 @@ const mainContainer = document.querySelector("#container")
 // mainContainer.innerHTML += formHtml
 // mainContainer.innerHTML += registration
 
-const landingPage = formElements.regButtons() 
+const landingPage = formElements.regButtons()
 mainContainer.innerHTML += landingPage
+
+
+const sessionStorage.setItem("activeUser", user.id)
+console.log(sessionStorage)
