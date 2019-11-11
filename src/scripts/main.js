@@ -1,11 +1,16 @@
+import formElements from "./auth/formHandler"
+
 /*
     Import all the tools into main.js that are needed to display
     the initial UI to the user. Either the login form should appear
     or the dashboard should be rendered.
 */
+const mainContainer = document.querySelector("#container")
 
-const message = "Time to build an application that gives you all the information you need in a Nutshell"
+const formHtml = formElements.loginForm()
 
-document.querySelector("#container").innerHTML = `<h1>${message}</h1>`
+const welcome = formElements.welcomeTitle()
 
-console.log(message)
+mainContainer.innerHTML += welcome
+
+mainContainer.innerHTML += formHtml
