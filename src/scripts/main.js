@@ -1,4 +1,4 @@
-import formElements from "./auth/formHandler"
+import formElements from "./auth/domHandler"
 
 /*
     Import all the tools into main.js that are needed to display
@@ -7,13 +7,16 @@ import formElements from "./auth/formHandler"
 */
 const mainContainer = document.querySelector("#container")
 
-const formHtml = formElements.loginForm()
+// const formHtml = formElements.loginForm()
 
-const welcome = formElements.welcomeTitle()
+// const welcome = formElements.welcomeTitle()
 
-const registration = formElements.RegForm()
+// const registration = formElements.RegForm()
 
-mainContainer.innerHTML += welcome
+// mainContainer.innerHTML += welcome
 
-mainContainer.innerHTML += formHtml
-mainContainer.innerHTML += registration
+// mainContainer.innerHTML += formHtml
+// mainContainer.innerHTML += registration
+
+const landingPage = formElements.regButtons() 
+mainContainer.innerHTML += landingPage
