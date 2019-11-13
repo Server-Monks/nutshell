@@ -16,8 +16,6 @@ const getAllEventsToDom = () => {
         })
     })
 }
-getAllEventsToDom()
-
 
 // ||| *** FUNCTIONALITY TO POST A NEW EVENT *** |||
 
@@ -49,6 +47,7 @@ const submit = {
                 date.value = ""
                 location.value = ""
         })
+        getAllEventsToDom()
     }
 }
 

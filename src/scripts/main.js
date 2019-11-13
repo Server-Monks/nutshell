@@ -1,5 +1,6 @@
 import formElements from "./auth/domHandler"
-import eventsFunctions from "./events/eventFunctionHandler"
+import activateEvents from "./events/eventFunctionHandler"
+
 
 
 import loginRegClick from "./auth/eventHandler"
@@ -8,6 +9,7 @@ import API from "./messages/apiHandler.js"
 
 
 import { SIGBUS } from "constants"
+
 
 
 sessionStorage.setItem("activeUser", 1)
@@ -34,7 +36,8 @@ const mainContainer = document.querySelector("#container")
 const landingPage = formElements.regButtons()
 mainContainer.innerHTML += landingPage
 
-eventsFunctions.activateEvents()
+activateEvents()
+
 
 
 
