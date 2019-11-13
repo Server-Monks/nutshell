@@ -1,11 +1,9 @@
 import EventListeners from "./tasks/eventHandler"
 import formElements from "./auth/domHandler"
-<<<<<<< HEAD
 // import loginRegClick from "./auth/eventHandler"
 import newsFormElements from "./news/newsDomHandler.js"
 
 
-=======
 import activateEvents from "./events/eventFunctionHandler"
 
 
@@ -17,7 +15,6 @@ import API from "./messages/apiHandler.js"
 
 import taskForm from "./tasks/domHandler.js"
 
->>>>>>> master
 
 sessionStorage.setItem("activeUser", 1)
 
@@ -43,7 +40,6 @@ const mainContainer = document.querySelector("#container")
 const landingPage = formElements.regButtons()
 mainContainer.innerHTML += landingPage
 
-<<<<<<< HEAD
 
 // const sessionStorage.setItem("activeUser", user.id)
 // console.log(sessionStorage)
@@ -54,7 +50,6 @@ mainContainer.innerHTML += landingPage
 
 
 
-=======
 activateEvents()
 
 
@@ -73,5 +68,4 @@ API.getMessages()
     .then(messages => renderDom.renderMessages(messages))
 
 EventListeners.registerAddListener()
->>>>>>> master
 
