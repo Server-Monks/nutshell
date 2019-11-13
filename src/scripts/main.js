@@ -35,7 +35,7 @@ mainContainer.innerHTML += landingPage
 
 
 
-// Calling for News Sections
+
 
 
 
