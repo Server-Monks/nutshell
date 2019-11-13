@@ -9,7 +9,7 @@ const newsFormElements = {
       <hr class="my-4">
       <p class="lead">
         <a class="add btn btn-primary btn-lg" id="addBtn" href="#" role="button">Add Article</a>
-        <a class="edit btn btn-primary btn-lg" href="#" role="button">Edit Article</a>
+        <a class="edit btn btn-primary btn-lg" id="deleteBtn" href="#" role="button">Edit Article</a>
         <a class="delete btn btn-primary btn-lg" href="#" role="button">Delete Article</a>
       </p>
     </div>
