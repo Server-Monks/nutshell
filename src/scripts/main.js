@@ -1,7 +1,7 @@
 import formElements from "./auth/domHandler"
 // import loginRegClick from "./auth/eventHandler"
 import newsFormElements from "./news/newsDomHandler.js"
-import events from "./news/newsEventListeners"
+
 
 
 sessionStorage.setItem("activeUser", 1)
@@ -36,5 +36,6 @@ mainContainer.innerHTML += landingPage
 
 
 // Calling for News Sections
+
 
 

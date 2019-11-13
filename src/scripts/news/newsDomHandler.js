@@ -1,4 +1,4 @@
-
+// import events from "./news/newsEventListeners"
 
 const newsFormElements = {
   newsPage: () => {
@@ -23,7 +23,7 @@ const newsFormElements = {
 const newsRenderDom = document.querySelector("#container2")
 newsRenderDom.innerHTML += newsFormElements.newsPage()
 
-
+// events.registerDeleteListener()
 
 export default newsFormElements
 
