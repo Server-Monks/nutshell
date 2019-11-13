@@ -1,4 +1,4 @@
-const mainContainer = document.querySelector("#container")
+const mainContainer = document.querySelector("#eventsContainer")
 
 const eventsToDom = (event) => {
     mainContainer.innerHTML += event
