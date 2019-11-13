@@ -7,7 +7,7 @@ const renderDom = {
         const messageHtml = messageManager.makeMessageComponent(message)
         htmlForAllMessages += messageHtml
       })
-      const logArticle = document.querySelector("#container")
+      const logArticle = document.querySelector("#messageContainer")
       logArticle.innerHTML = htmlForAllMessages
     }
 
