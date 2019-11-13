@@ -3,21 +3,29 @@ import registerEventListener from "./newsEventListeners"
 
 const newsFormElements = {
   newsPage: () => {
-      return `
+    return `
       <div class="jumbotron">
       <h1 class="display-4">Interesting Finds!</h1>
+      <section>
+        <label for="memeName">Title</label>
+        <input type="text" id="name-input">
+      </section>
+      <section>
+        <label for="memeDescription">Description</label>
+        <input type="text" id="desc-input">
+      </section>
+      <section>
+        <label for="memeImageUrl">Article URL</label>
+        <input type="text" id="image-input">
+      </section>
       <hr class="my-4">
       <p class="lead">
         <a class="add btn btn-primary btn-lg" id="addBtn" href="#" role="button">Add Article</a>
-        <a class="edit btn btn-primary btn-lg" id="deleteBtn" href="#" role="button">Edit Article</a>
-        <a class="delete btn btn-primary btn-lg" href="#" role="button">Delete Article</a>
       </p>
     </div>
     `
   }
 }
-
-
 
 
 const newsRenderDom = document.querySelector("#container2")
