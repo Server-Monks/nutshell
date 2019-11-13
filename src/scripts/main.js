@@ -3,6 +3,9 @@ import activateEvents from "./events/eventFunctionHandler"
 
 import loginRegClick from "./auth/eventHandler"
 
+import submitFunction from "./events/eventsEventListeners"
+import { SIGBUS } from "constants"
+
 sessionStorage.setItem("activeUser", 1)
 
 let currentUser = sessionStorage.getItem("activeUser")
@@ -28,4 +31,5 @@ const landingPage = formElements.regButtons()
 mainContainer.innerHTML += landingPage
 
 activateEvents()
+
 // loginRegClick()
