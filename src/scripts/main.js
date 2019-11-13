@@ -1,5 +1,9 @@
 import EventListeners from "./tasks/eventHandler"
 import formElements from "./auth/domHandler"
+// import loginRegClick from "./auth/eventHandler"
+import newsFormElements from "./news/newsDomHandler.js"
+
+
 import activateEvents from "./events/eventFunctionHandler"
 
 
@@ -35,6 +39,16 @@ const mainContainer = document.querySelector("#container")
 
 const landingPage = formElements.regButtons()
 mainContainer.innerHTML += landingPage
+
+
+// const sessionStorage.setItem("activeUser", user.id)
+// console.log(sessionStorage)
+
+
+
+
+
+
 
 activateEvents()
 
