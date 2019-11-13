@@ -1,5 +1,7 @@
 import formElements from "./auth/domHandler"
 import loginRegClick from "./auth/eventHandler"
+import renderDom from "./messages/domHandler.js"
+import API from "./messages/apiHandler.js"
 
 sessionStorage.setItem("activeUser", 1)
 
@@ -25,4 +27,9 @@ const mainContainer = document.querySelector("#container")
 const landingPage = formElements.regButtons()
 mainContainer.innerHTML += landingPage
 
+// mainContainer.innerHTML += formHtml
+
+// mainContainer.innerHTML += registration
 // loginRegClick()
+API.getMessages()
+    .then(messages => renderDom.renderMessages(messages))
