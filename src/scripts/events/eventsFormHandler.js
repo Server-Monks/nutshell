@@ -15,8 +15,8 @@ const newEventForm = () => {
                 <label for="event">Location: </label>
                 <input type="text" class="form-control" id="eventLocation" placeholder="enter location of event">
             </div>
+            </form>
             <button id="newEventSubmitBTN">Submit</button>
-        </form>
         </br>
         </br>
         <h3><u>Upcoming Events:</u></h3>
