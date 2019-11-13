@@ -1,28 +1,39 @@
-import getAllJournalEntriesToDom from "./journal.js"
-
-const url = "http://localhost:8088/entries"
+const url = "http://localhost:8088/events"
 
 const API = {
-    getJournalEntries() {
+    getAllEvents() {
         return fetch(`${url}`)
             .then(response => response.json())
     },
-    saveJournalEntry(journalEntryObject) {
+    saveNewEvent(eventObject) {
         return fetch(`${url}`, { // Replace "url" with your API's URL
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(journalEntryObject)
+            body: JSON.stringify(eventObject)
         })
-        // .then(getAllJournalEntriesToDom)
     },
-    deleteEntry(journalEntryid) {
-        return fetch(`http://localhost:8088/entries/${journalEntryid}`, {
+    deleteEvent(eventId) {
+        return fetch(`http://localhost:8088/events/${eventId}`, {
             method: "DELETE"
         })
             .then(response => response.json())
     },
-    getSingleJournalEntry(journalEntryId) {
-        return fetch(`http://localhost:8088/entries/${journalEntryId}`)
-        .then(response => resp
+    getSingleEvent(eventId) {
+        return fetch(`http://localhost:8088/events/${eventId}`)
+        .then(response => response.json())
+    },
+    editEvent(eventId, updatedEvent) {
+        return fetch(`http://localhost:8088/events/${eventId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedEvent)
+        })
+
+    }
+}
+
+export default API

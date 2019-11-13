@@ -1,19 +1,16 @@
-const name = document.querySelector("#eventName")
-const date = document.querySelector("#eventDate")
-const location = document.querySelector("#eventLocation")
-
-const createEvent = (event) => {
+const makeEventComponent = (event) => {
     return `
-        <section class="eventEntryHTML">
+        <section class="eventEntryHTML--${event.id}">
+            <p>Name: ${event.name}</p>
+            <p>Date: ${event.date}</p>
+            <p>Location: ${event.location}</p>
+            <button type="button" id="deleteEvent--${event.id}">Delete Entry</button>
+            <button type="button" id="editEvent--${event.id}">Edit Entry</button>
             </br>
-            <h3><u>Upcoming Events:</u></h3>
             </br>
-            <p>${event.name}</p>
-            <p>${event.date}</p>
-            <p>${event.location}</p>
         </section>
     `
 }
 
-export default createEvent
+export default makeEventComponent
 

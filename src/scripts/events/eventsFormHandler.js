@@ -17,6 +17,9 @@ const newEventForm = () => {
             </div>
             <button id="newEventSubmitBTN">Submit</button>
         </form>
+        </br>
+        </br>
+        <h3><u>Upcoming Events:</u></h3>
     `
 }
 
