@@ -2,14 +2,22 @@ import messageManager from "./domComponents.js"
 
 const renderDom = {
     renderMessages(messages) {
-      let HtmlForAllMessages = ""
+      let htmlForAllMessages = ""
       messages.forEach(message => {
-        const entryHtml = messageManager.makeMessageComponent(message)
-        HtmlForAllMessages += entryHtml
+        const messageHtml = messageManager.makeMessageComponent(message)
+        htmlForAllMessages += messageHtml
       })
-      const logArticle = document.querySelector("#container")
-      logArticle.innerHTML = HtmlForAllMessages
+      const logArticle = document.querySelector("#messageListContainer")
+      logArticle.innerHTML = htmlForAllMessages
+    },
+
+    renderNewMessageForm() {
+      const renderNewMessageForm = document.querySelector("#messageContainer")
+      renderNewMessageForm.innerHTML += messageManager.makeMessageFormContainer()
+
+      
     }
+
   }
 
 export default renderDom
