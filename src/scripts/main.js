@@ -1,7 +1,10 @@
+import EventListeners from "./tasks/eventHandler"
 import formElements from "./auth/domHandler"
 import loginRegClick from "./auth/eventHandler"
 import renderDom from "./messages/domHandler.js"
 import API from "./messages/apiHandler.js"
+
+import taskForm from "./tasks/domHandler.js"
 
 sessionStorage.setItem("activeUser", 1)
 
@@ -33,3 +36,5 @@ mainContainer.innerHTML += landingPage
 // loginRegClick()
 API.getMessages()
     .then(messages => renderDom.renderMessages(messages))
+
+EventListeners.registerAddListener()
