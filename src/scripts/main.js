@@ -1,5 +1,8 @@
 import formElements from "./auth/domHandler"
-import loginRegClick from "./auth/eventHandler"
+// import loginRegClick from "./auth/eventHandler"
+import newsFormElements from "./news/newsDomHandler.js"
+import events from "./news/newsEventListeners"
+
 
 sessionStorage.setItem("activeUser", 1)
 
@@ -25,10 +28,13 @@ const mainContainer = document.querySelector("#container")
 const landingPage = formElements.regButtons()
 mainContainer.innerHTML += landingPage
 
-<<<<<<< HEAD
 
-const sessionStorage.setItem("activeUser", user.id)
-console.log(sessionStorage)
-=======
-// loginRegClick()
->>>>>>> master
+// const sessionStorage.setItem("activeUser", user.id)
+// console.log(sessionStorage)
+
+
+
+
+// Calling for News Sections
+
+
