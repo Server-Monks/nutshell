@@ -12,6 +12,17 @@ const messageManager = {
                 <button id="editCard--${messageCard.id}">Edit</button>
             </div>
         </div>`
+    },
+
+    makeMessageFormContainer(newMessageForm) {
+        return
+        `<article id="messageListContainer"></article>
+        <div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Create Task" aria-label="Create Task" aria-describedby="taskButton">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" id="add-task-button">Add</button>
+  </div>
+</div>`
     }
 }
 
