@@ -7,16 +7,16 @@ const newsFormElements = {
       <div class="jumbotron">
       <h1 class="display-4">Interesting Finds!</h1>
       <section>
-        <label for="memeName">Title</label>
+        <label id="titleInput" for="memeName">Title</label>
         <input type="text" id="name-input">
       </section>
       <section>
-        <label for="memeDescription">Description</label>
-        <input type="text" id="desc-input">
+        <label for="articleDescription">Description</label>
+        <input id="descriptionInput" type="text" id="desc-input">
       </section>
       <section>
-        <label for="memeImageUrl">Article URL</label>
-        <input type="text" id="image-input">
+        <label for="articleImageUrl">Article URL</label>
+        <input id="urlInput" type="text" id="image-input">
       </section>
       <hr class="my-4">
       <p class="lead">

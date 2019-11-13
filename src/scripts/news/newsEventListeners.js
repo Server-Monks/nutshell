@@ -1,23 +1,42 @@
+import entryManager from "./newsEntryComponent.js"
 
 
 
 
 
-const registerEventListener = () => {                      //creating a function for delete Listener
-    const addArticles = document.querySelector("#addBtn")        //targeting the class from HMTL.
-    addArticles.addEventListener("click", event => {
-        console.log(event)
-    }
-    )
+
+// const registerEventListener = () => {                      //creating a function for delete Listener
+//     const addArticles = document.querySelector("#addBtn")        //targeting the class from HMTL.
+//     addArticles.addEventListener("click", event => {
+//         console.log(event)
+//     }
+//     )
+// }
+
+
+// creates an event listener that listens out for the click that contains the user's info.
+// By calling the object passed into the call it goes up to where the variable was created asking
+// what it is.  Then it parse the info by adding the value in each input
+const registerEventListener = () => {                      //creating a function for event Listener
+    document.querySelector("#addBtn").addEventListener("click", function () {
+        const newArticleEntry = entryManager.createArticleObj(
+            document.querySelector("#titleInput").value,
+            document.querySelector("#descriptionInput").value,
+            document.querySelector("#urlInput").value,
+            )
+        console.log(newArticleEntry);
+        // API.postEntry(newJournalEntries)
+        // .then(API.getJournalEntries).then(renderDom.renderJournalEntries)
+    })
 }
 
 
 
 
-// if (event.target.id.startsWith("deleteBtn")) {           //condition for if the startswith ***
-//     // Extract delete id from the button's id attribute
-//     const entryIDToDelete = event.target.id.split("--")[1]       //using the split method which I need to study ***
-//     console.log("Clicked")
+
+
+
+
 
 
 export default registerEventListener
