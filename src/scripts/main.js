@@ -1,3 +1,4 @@
+import EventListeners from "./tasks/eventHandler"
 import formElements from "./auth/domHandler"
 import activateEvents from "./events/eventFunctionHandler"
 
@@ -11,6 +12,7 @@ import API from "./messages/apiHandler.js"
 import { SIGBUS } from "constants"
 
 
+import taskForm from "./tasks/domHandler.js"
 
 sessionStorage.setItem("activeUser", 1)
 
@@ -46,5 +48,12 @@ activateEvents()
 
 // mainContainer.innerHTML += registration
 // loginRegClick()
+<<<<<<< HEAD
 // API.getMessages()
 //     .then(messages => renderDom.renderMessages(messages))
+=======
+API.getMessages()
+    .then(messages => renderDom.renderMessages(messages))
+
+EventListeners.registerAddListener()
+>>>>>>> master
