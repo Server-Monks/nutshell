@@ -7,15 +7,8 @@ const renderDom = {
         const messageHtml = messageManager.makeMessageComponent(message)
         htmlForAllMessages += messageHtml
       })
-      const logArticle = document.querySelector("#messageListContainer")
+      const logArticle = document.querySelector("#container")
       logArticle.innerHTML = htmlForAllMessages
-    },
-
-    renderNewMessageForm() {
-      const renderNewMessageForm = document.querySelector("#messageContainer")
-      renderNewMessageForm.innerHTML += messageManager.makeMessageFormContainer()
-
-      
     }
 
   }
