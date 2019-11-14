@@ -5,7 +5,7 @@ const API = {
   getArticleEntries() {
     return fetch("http://localhost:8088/news")
       .then(response => response.json())
-    },
+  },
 
   postEntry(newArticleEntry) {
     return fetch("http://localhost:8088/news", {
@@ -15,7 +15,13 @@ const API = {
       },
       body: JSON.stringify(newArticleEntry)
     })
-  }
+  },
+  deleteEntry(id) {                                                     //function for deleting a single entry
+    return fetch(`http://localhost:3000/entries/${id}`, {
+      method: "DELETE"
+    })
+      .then(response => response.json())
+  },
 }
 
 
