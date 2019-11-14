@@ -1,4 +1,6 @@
 import entryManager from "./newsEntryComponent.js"
+import API from "./newsApiHandler.js"
+import newsRenderDom from "./newsEntryDom.js"
 
 
 
@@ -25,6 +27,8 @@ const registerEventListener = () => {                      //creating a function
             document.querySelector("#urlInput").value,
             )
         console.log(newArticleEntry);
+        API.postEntry(newArticleEntry)
+        .then(API.getArticleEntries).then(newsRenderDom.renderArticleEntries)
         // API.postEntry(newJournalEntries)
         // .then(API.getJournalEntries).then(renderDom.renderJournalEntries)
     })
