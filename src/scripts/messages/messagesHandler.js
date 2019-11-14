@@ -11,25 +11,24 @@ import API from "./apiHandler.js"
 
 
 
-API.getMessages()
-    .then(messages => renderDom.renderMessages(messages))
-
 const newMessage = (text) => {
     return {
         "message": text
     }
 }
+const saveObject = {
+    attachSaveEvent() {
 
-const attachSearchEvent = () => {
-
-    const messageInputButton = document.querySelector("#submitButton")
-    messageInputButton.addEventListener("click", () => {
-        let textInput = document.querySelector("#exampleFormControlTextarea1").value
-        const messageObject = newMessage(textInput)
-        API.postMessages(messageObject)
-            .then(API.getMessages)
-            .then(messages => renderDom.renderMessages(messages))
-    })
+        const messageInputButton = document.querySelector("#submitButton")
+        messageInputButton.addEventListener("click", () => {
+            let textInput = document.querySelector("#exampleFormControlTextarea1").value
+            const messageObject = newMessage(textInput)
+            messageObject.userId = sessionStorage.getItem("activeUser")
+            API.postMessages(messageObject)
+                .then(API.getMessages)
+                .then(renderDom.renderMessages)
+        })
+    }
 }
 
-export default attachSearchEvent
+export default saveObject

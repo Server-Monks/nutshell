@@ -18,40 +18,24 @@ let API = {
     })
   },
 
-  deleteMessage(cardId) {
-    return fetch(`${URL}/${cardId}`, {
+  deleteMessage(messageCardId) {
+    return fetch(`${URL}/${messageCardId}`, {
       method: "DELETE"
     })
       .then(response => response.json())
   },
 
-  updateFormFields(cardId) {
-
-    // Get reference to input fields in the form
-    const hiddenMessageId = document.querySelector("#messageId")
-    const messageInput = document.querySelector("#messageBody")
-
-    return fetch(`${URL}/${cardId}`)
+  updateFormFields(messageCardId) {
+    return fetch(`${URL}/${messageCardId}`)
       .then(response => response.json())
-      .then(message => {
-        /*
-            Now that you KNOW you have the data, render
-            an editing form that represents the current
-            state of the resource.
-        */
-        hiddenMessageId.value = message.id // Hidden value. User no see. 🙈
-        messageInput.value = message.body
+      .then(messageCard => {
+        hiddenMessageId.value = messageCard.id
+        messageInput.value = messageCard.message
       })
   },
 
-  editCard(cardId) {
-    const updatedObject = {
-      messageID: document.querySelector("#messageId").value,
-      message: document.querySelector("#messageBody").value
-    }
-
-    // Logic for the PUT operation
-    return fetch(`${URL}/${cardId}`, {
+  editCard(messageCardId) {
+    return fetch(`${URL}/${messageCardId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -60,14 +44,6 @@ let API = {
     })
       .then(res => res.json())
       .then(() => {
-        /*
-            Since this is the point in the code where you KNOW
-            the operation completed successfully, clear the
-            value of the hidden input field to that your
-            application is back to the state of creating instead
-            of editing
-        */
-        document.querySelector("#messageId").value = ""
       })
 
   }
