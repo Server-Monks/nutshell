@@ -2,8 +2,9 @@ import EventListeners from "./tasks/eventHandler"
 import formElements from "./auth/domHandler"
 // import loginRegClick from "./auth/eventHandler"
 import newsFormElements from "./news/newsDomHandler.js"
-import newsApi from "./news/apiHandler.js"
+import newsApi from "./news/newsApiHandler.js"
 import newsRenderDom from "./news/newsEntryDom.js"
+import registerEventListener from "./news/newsEventListeners"
 
 
 import activateEvents from "./events/eventFunctionHandler"
@@ -18,6 +19,7 @@ import doThaThang from "./messages/eventHandler"
 
 
 import taskForm from "./tasks/domHandler.js"
+
 
 
 sessionStorage.setItem("activeUser", 1)
@@ -97,5 +99,8 @@ newsApi.getArticleEntries()
   .then(response => newsRenderDom.renderArticleEntries(response))
 
 // newsRenderDom.renderArticleEntries()
+registerEventListener()
+   
+    
 
   
