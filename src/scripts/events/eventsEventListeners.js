@@ -1,21 +1,7 @@
 import API from "./eventsApiHandler"
-import makeEventComponent from "./eventsHtmlComponent"
-import eventsToDom from "./eventsDomHandler"
-
-
-// ||| *** FUNCTIONALITY TO GET ALL EVENTS TO DOM *** |||
-
-const getAllEventsToDom = () => {
-    API.getAllEvents().then(parsedEvents => {
-        // iterates over the array in the database, and for each entry,
-        parsedEvents.forEach(event => {
-            // invokes makeJournalEntryComponent, taking each key and its value as an argument, and stores the returned string in a variable.
-            const eventHtml = makeEventComponent(event)
-            // Finally, the function is invoked that takes the above variable as an argument and puts each entry on the dom.
-            eventsToDom(eventHtml)
-        })
-    })
-}
+// import makeEventComponent from "./eventsHtmlComponent"
+import eventsToDomFunctions from "./eventsDomHandler"
+import editForm from "./eventsEditFormHandler"
 
 // ||| *** FUNCTIONALITY TO POST A NEW EVENT *** |||
 
@@ -35,19 +21,54 @@ const submit = {
     submitFunction() {
         const newEventSubmitButton = document.querySelector("#newEventSubmitBTN")
         newEventSubmitButton.addEventListener("click", () => {
-            event.preventDefault()
-            console.log("hey buddy")
             const name = document.querySelector("#eventName")
             const date = document.querySelector("#eventDate")
             const location = document.querySelector("#eventLocation")
             const eventObject = createEvent(name, date, location)
-            console.log(eventObject)
-            API.saveNewEvent(eventObject).then(getAllEventsToDom)
-                name.value = ""
-                date.value = ""
-                location.value = ""
+            const hiddenId = document.querySelector("#hiddenId").value
+            if (hiddenId === "") {
+                API.saveNewEvent(eventObject).then(eventsToDomFunctions.getAllEventsToDom)
+                    name.value = ""
+                    date.value = ""
+                    location.value = ""
+            } else {
+                if (hiddenId !== "") {
+                    const eventListContainer = document.querySelector("#eventsListContainer")
+                    eventListContainer.innerHTML = ""
+                    API.editEvent(hiddenId, eventObject)
+                        .then(eventsToDomFunctions.getAllEventsToDom)
+                        .then(() => {
+                            name.value = ""
+                            date.value = ""
+                            location.value = ""
+                        })
+                }
+            }
+        })
+    },
+    deleteAndEditEventFunction() {
+        const eventListContainer = document.querySelector("#eventsListContainer")
+        eventListContainer.addEventListener("click", () => {
+            if (event.target.id.startsWith("deleteEvent--")) {
+                const eventToDelete = event.target.id.split("--")[1]
+                API.deleteEvent(eventToDelete).then(eventsToDomFunctions.getAllEventsToDom)
+            } else {
+                if (event.target.id.startsWith("editEvent--")) {
+                    const eventToEdit = event.target.id.split("--")[1]
+                    eventListContainer.innerHTML = ""
+                    API.getSingleEvent(eventToEdit)
+                        .then(event => {
+                            editForm(event)
+                            document.querySelector("#hiddenId").value = event.id,
+                            document.querySelector("#eventName").value = event.name,
+                            document.querySelector("#eventDate").value = event.date,
+                            document.querySelector("#eventLocation").value = event.location
+                        })
+                }
+            }
         })
     }
 }
+
 
 export default submit

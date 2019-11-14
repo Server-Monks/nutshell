@@ -1,12 +1,11 @@
-import eventsToDom from "./eventsDomHandler"
+import eventsToDomFunctions from "./eventsDomHandler"
 import newEventForm from "./eventsFormHandler"
 import submit from "./eventsEventListeners"
 
 const activateEvents = () => {
-    const mainContainer = document.querySelector("#container")
-    mainContainer.innerHTML = ""
-    eventsToDom(newEventForm())
+    eventsToDomFunctions.eventsToDom(newEventForm())
     submit.submitFunction()
+    submit.deleteAndEditEventFunction()
 }
 
 export default activateEvents
