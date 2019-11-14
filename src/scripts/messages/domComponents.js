@@ -23,8 +23,9 @@ const messageManager = {
             <div class="card-body">
                 <article id="insertMessagesHere"></article>
                 <div class="form-group">
+                    <input type="hidden" id="messageId" value="" />
                     <label for="exampleFormControlTextarea1">New Message</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="messageBody" id="exampleFormControlTextarea1" rows="3"></textarea>
                     <a href="#" class="btn btn-primary" id="submitButton">Submit</a>
                 </div>
             </div>
