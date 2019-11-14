@@ -6,8 +6,9 @@ import newsApi from "./news/newsApiHandler.js"
 import newsRenderDom from "./news/newsEntryDom.js"
 import registerEventListener from "./news/newsEventListeners"
 
-
+///// EVENTS SECTION (author: Caroline Brownlee) /////
 import activateEvents from "./events/eventFunctionHandler"
+
 
 
 
@@ -17,6 +18,7 @@ import API from "./messages/apiHandler.js"
 
 
 import taskForm from "./tasks/domHandler.js"
+import eventsToDomFunctions from "./events/eventsDomHandler"
 
 
 
@@ -54,7 +56,6 @@ mainContainer.innerHTML += landingPage
 
 
 
-activateEvents()
 
 
 
@@ -69,9 +70,12 @@ activateEvents()
 //     .then(messages => renderDom.renderMessages(messages))
 
 API.getMessages()
-    .then(messages => renderDom.renderMessages(messages))
+.then(messages => renderDom.renderMessages(messages))
 
 EventListeners.registerAddListener()
+
+eventsToDomFunctions.getAllEventsToDom()
+activateEvents()
 
 
 // News Section
