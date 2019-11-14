@@ -1,21 +1,7 @@
 import API from "./eventsApiHandler"
-import makeEventComponent from "./eventsHtmlComponent"
-import eventsToDom from "./eventsDomHandler"
+// import makeEventComponent from "./eventsHtmlComponent"
+import eventsToDomFunctions from "./eventsDomHandler"
 
-
-// ||| *** FUNCTIONALITY TO GET ALL EVENTS TO DOM *** |||
-
-const getAllEventsToDom = () => {
-    API.getAllEvents().then(parsedEvents => {
-        // iterates over the array in the database, and for each entry,
-        parsedEvents.forEach(event => {
-            // invokes makeJournalEntryComponent, taking each key and its value as an argument, and stores the returned string in a variable.
-            const eventHtml = makeEventComponent(event)
-            // Finally, the function is invoked that takes the above variable as an argument and puts each entry on the dom.
-            eventsToDom(eventHtml)
-        })
-    })
-}
 
 // ||| *** FUNCTIONALITY TO POST A NEW EVENT *** |||
 
@@ -33,21 +19,65 @@ const createEvent = (name, date, location) => {
 // Function that captures submit button on newEventForm() and saves a new event to database.json.
 const submit = {
     submitFunction() {
+        // getAllEventsToDom()
         const newEventSubmitButton = document.querySelector("#newEventSubmitBTN")
         newEventSubmitButton.addEventListener("click", () => {
-            event.preventDefault()
             console.log("hey buddy")
             const name = document.querySelector("#eventName")
             const date = document.querySelector("#eventDate")
             const location = document.querySelector("#eventLocation")
             const eventObject = createEvent(name, date, location)
             console.log(eventObject)
-            API.saveNewEvent(eventObject).then(getAllEventsToDom)
+            API.saveNewEvent(eventObject).then(eventsToDomFunctions.getAllEventsToDom)
                 name.value = ""
                 date.value = ""
                 location.value = ""
         })
-    }
+    },
+    deleteAndEditEventFunction() {
+            const eventListContainer = document.querySelector("#eventsListContainer")
+            eventListContainer.addEventListener("click", () => {
+                    console.log("this works")
+                    if (event.target.id.startsWith("deleteEvent--")) {
+                            const eventToDelete = event.target.id.split("--")[1]
+                            API.deleteEvent(eventToDelete).then(eventsToDomFunctions.getAllEventsToDom)
+                        }
+                    })
+                }
 }
-
+            
 export default submit
+
+// const entriesContainer = document.querySelector(".entryLog")
+// entriesContainer.addEventListener("click", () => {
+//     if (event.target.id.startsWith("deleteEntry--")) {
+//         // Extract id from the button's id attribute
+//         const entryToDelete = event.target.id.split("--")[1]
+//         // Fetch to delete entry which takes entry to delete as argument,
+//         // THEN gets all journal entries to dom
+//         API.deleteEntry(entryToDelete)
+//         .then(getAllJournalEntriesToDom)
+//     } else {
+//         if (event.target.id.startsWith("editEntry--")) {
+//             // If so, split the id from the button's id attribute,
+//             const entryToEdit = event.target.id.split("--")[1]
+//             // and fetch the single entry of that id from the database.
+//             entriesContainer.innerHTML = ""
+//             API.getSingleJournalEntry(entryToEdit)
+//             // THEN take that entry,
+//             .then(entry => {
+//                 // invoke editForm,
+//                 editForm(entry)
+//                 // grab references to the input fields in the form,
+//                 // and assign their values to the entry being edited.
+//                 document.querySelector("#hiddenId").value = entry.id,
+//                 document.querySelector("#journalDate").value = entry.date,
+//                 document.querySelector("#concept").value = entry.concept,
+//                 document.querySelector("#content").value = entry.content,
+//                 document.querySelector("#mood").value = entry.mood
+//             })
+//         }
+//     }
+// })
+
+// export default getAllJournalEntriesToDom

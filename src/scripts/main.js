@@ -3,8 +3,9 @@ import formElements from "./auth/domHandler"
 // import loginRegClick from "./auth/eventHandler"
 import newsFormElements from "./news/newsDomHandler.js"
 
-
+///// EVENTS SECTION (author: Caroline Brownlee) /////
 import activateEvents from "./events/eventFunctionHandler"
+import eventsToDomFunctions from "./events/eventsDomHandler"
 
 
 
@@ -50,7 +51,6 @@ mainContainer.innerHTML += landingPage
 
 
 
-activateEvents()
 
 
 
@@ -65,7 +65,10 @@ activateEvents()
 //     .then(messages => renderDom.renderMessages(messages))
 
 API.getMessages()
-    .then(messages => renderDom.renderMessages(messages))
+.then(messages => renderDom.renderMessages(messages))
 
 EventListeners.registerAddListener()
+
+
+activateEvents()
 
