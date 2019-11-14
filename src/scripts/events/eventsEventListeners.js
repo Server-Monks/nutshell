@@ -19,7 +19,6 @@ const createEvent = (name, date, location) => {
 // Function that captures submit button on newEventForm() and saves a new event to database.json.
 const submit = {
     submitFunction() {
-        // getAllEventsToDom()
         const newEventSubmitButton = document.querySelector("#newEventSubmitBTN")
         newEventSubmitButton.addEventListener("click", () => {
             console.log("hey buddy")

@@ -5,7 +5,7 @@ import newsFormElements from "./news/newsDomHandler.js"
 
 ///// EVENTS SECTION (author: Caroline Brownlee) /////
 import activateEvents from "./events/eventFunctionHandler"
-import eventsToDomFunctions from "./events/eventsDomHandler"
+
 
 
 
@@ -15,6 +15,7 @@ import API from "./messages/apiHandler.js"
 
 
 import taskForm from "./tasks/domHandler.js"
+import eventsToDomFunctions from "./events/eventsDomHandler"
 
 
 sessionStorage.setItem("activeUser", 1)
@@ -69,6 +70,6 @@ API.getMessages()
 
 EventListeners.registerAddListener()
 
-
+eventsToDomFunctions.getAllEventsToDom()
 activateEvents()
 
