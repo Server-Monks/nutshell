@@ -90,9 +90,6 @@ API.getMessages()
     // Get all recipes from API and render them in the DOM
     
 
-
-.then(messages => renderDom.renderMessages(messages))
-
 EventListeners.registerAddListener()
 
 eventsToDomFunctions.getAllEventsToDom()
