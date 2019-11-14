@@ -1,6 +1,6 @@
 const makeEventComponent = (event) => {
     return `
-        <section class="eventEntryHTML--${event.id}">
+        <section class="eventHTML--${event.id}">
             <p>Name: ${event.name}</p>
             <p>Date: ${event.date}</p>
             <p>Location: ${event.location}</p>

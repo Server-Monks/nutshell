@@ -1,8 +1,8 @@
-const newEventForm = () => {
+const editForm = (entry) => {
     return `
         <h1><u>EVENTS</u></h1>
-        <input type="hidden" id="hiddenId" value="" />
         <form>
+            <input type="hidden" id="hiddenId" value="" />
             <div class="form-group">
                 <h5></br>Add A New Event:</h5>
                 <label for="event">Name: </label>
@@ -24,4 +24,4 @@ const newEventForm = () => {
     `
 }
 
-export default newEventForm
+export default editForm
