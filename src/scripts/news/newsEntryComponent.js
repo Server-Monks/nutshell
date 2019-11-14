@@ -4,7 +4,7 @@
 
 const entryManager = {
 
-    makeJournalEntryComponent(articleEntry) {
+    makeArticleEntryComponent(articleEntry) {
         // Create your own HTML structure for a journal entry
         return `
         <section id=journalEntries>
