@@ -1,7 +1,7 @@
 import API from "./apiHandler"
 import renderDom from "./domHandler"
 
-const messageLog = document.querySelector("#container")
+const messageLog = document.querySelector("#messageContainer")
 const doThaThang = {
     registerDeleteListener() {
         messageLog.addEventListener("click", event => {
