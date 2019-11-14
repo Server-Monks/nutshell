@@ -68,4 +68,3 @@ API.getMessages()
     .then(messages => renderDom.renderMessages(messages))
 
 EventListeners.registerAddListener()
-
