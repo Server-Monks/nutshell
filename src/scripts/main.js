@@ -72,11 +72,9 @@ API.getMessages()
 
 EventListeners.registerAddListener()
 
-<<<<<<< HEAD
 eventsToDomFunctions.getAllEventsToDom()
 activateEvents()
 
-=======
 
 // News Section
 newsApi.getArticleEntries()
@@ -85,4 +83,3 @@ newsApi.getArticleEntries()
 // newsRenderDom.renderArticleEntries()
 
   
->>>>>>> master
