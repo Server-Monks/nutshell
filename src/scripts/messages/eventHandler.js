@@ -36,8 +36,8 @@ const doThaThang = {
     },
 
     registerSaveListener() {
-        let saveButton = document.querySelector("#save-button")
-        saveButton.addEventListener("click", event => {
+        let saveButton = document.querySelector("#saveButton")
+        saveButton.addEventListener("click", () => {
             const hiddenMessageId = document.querySelector("#messageId").value
         if (hiddenMessageId !== "") {
                 API.editCard(hiddenMessageId)

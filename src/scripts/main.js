@@ -13,6 +13,8 @@ import activateEvents from "./events/eventFunctionHandler"
 import loginRegClick from "./auth/eventHandler"
 import renderDom from "./messages/domHandler.js"
 import API from "./messages/apiHandler.js"
+import attachSearchEvent from "./messages/messagesHandler.js"
+import doThaThang from "./messages/eventHandler"
 
 
 import taskForm from "./tasks/domHandler.js"
@@ -67,7 +69,25 @@ activateEvents()
 //     .then(messages => renderDom.renderMessages(messages))
 
 API.getMessages()
-    .then(messages => renderDom.renderMessages(messages))
+    .then(messages => {
+        renderDom.renderMessages(messages)
+
+        attachSearchEvent();
+    })
+
+
+
+    API.getMessages().then(renderDom)
+    // write function to append appropriate entries based on mood selected by radio button
+    
+    // Invoke the method that attaches the event listener
+    doThaThang.registerDeleteListener()
+    doThaThang.registerEditListener()
+    
+    // Get all recipes from API and render them in the DOM
+    
+
+
 
 EventListeners.registerAddListener()
 

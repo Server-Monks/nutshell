@@ -28,35 +28,26 @@ let API = {
   updateFormFields(cardId) {
 
     // Get reference to input fields in the form
-    const hiddenJournalEntryId = document.querySelector("#entryId")
-    const journalConceptInput = document.querySelector("#entryConcept")
-    const journalDateInput = document.querySelector("#entryDate")
-    const journalEntryInput = document.querySelector("#entryBody")
-    const journalMoodInput = document.querySelector("#entryMood")
+    const hiddenMessageId = document.querySelector("#messageId")
+    const messageInput = document.querySelector("#messageBody")
 
     return fetch(`${URL}/${cardId}`)
       .then(response => response.json())
-      .then(journalEntry => {
+      .then(message => {
         /*
             Now that you KNOW you have the data, render
             an editing form that represents the current
             state of the resource.
         */
-        hiddenJournalEntryId.value = journalEntry.id // Hidden value. User no see. 🙈
-        journalConceptInput.value = journalEntry.concept
-        journalDateInput.value = journalEntry.date
-        journalEntryInput.value = journalEntry.body
-        journalMoodInput.value = journalEntry.mood
+        hiddenMessageId.value = message.id // Hidden value. User no see. 🙈
+        messageInput.value = message.body
       })
   },
 
   editCard(cardId) {
     const updatedObject = {
-      entryID: document.querySelector("#entryId").value,
-      concept: document.querySelector("#entryConcept").value,
-      date: document.querySelector("#entryDate").value,
-      body: document.querySelector("#entryBody").value,
-      mood: document.querySelector("#entryMood").value
+      messageID: document.querySelector("#messageId").value,
+      message: document.querySelector("#messageBody").value
     }
 
     // Logic for the PUT operation
@@ -76,7 +67,7 @@ let API = {
             application is back to the state of creating instead
             of editing
         */
-        document.querySelector("#entryId").value = ""
+        document.querySelector("#messageId").value = ""
       })
 
   }
