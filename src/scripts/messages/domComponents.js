@@ -3,26 +3,32 @@ const messageManager = {
     makeMessageComponent(messageCard) {
         // Creates HTML structure for a chat message
         return `
-        <div class="card--${messageCard.id}" style="width: 18rem;">
+        <div class="card" id="card--${messageCard.id}" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">${messageCard.userId}</h5>
                 <p class="card-text">${messageCard.message}</p>
                 <p class="card-date">${messageCard.date}</p>
-                <button id="deleteCard--${messageCard.id}">Delete</button>
-                <button id="editCard--${messageCard.id}">Edit</button>
+                <a href="#" class="btn btn-primary" id="deleteCard--${messageCard.id}">Delete</a>
+                <a href="#" class="btn btn-primary" id="editCard--${messageCard.id}">Edit</a>
             </div>
         </div>`
     },
 
-    makeMessageFormContainer(newMessageForm) {
-        return
-        `<article id="messageListContainer"></article>
-        <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Create Task" aria-label="Create Task" aria-describedby="taskButton">
-  <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button" id="add-task-button">Add</button>
-  </div>
-</div>`
+    makeMessageContainer() {
+        return `
+        <div class="card">
+            <div class="card-header">
+                <h2>Messages</h2>
+            </div>
+            <div class="card-body">
+                <article id="insertMessagesHere"></article>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">New Message</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <a href="#" class="btn btn-primary" id="submitButton">Submit</a>
+                </div>
+            </div>
+        </div>`
     }
 }
 

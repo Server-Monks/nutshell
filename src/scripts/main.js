@@ -2,6 +2,8 @@ import EventListeners from "./tasks/eventHandler"
 import formElements from "./auth/domHandler"
 // import loginRegClick from "./auth/eventHandler"
 import newsFormElements from "./news/newsDomHandler.js"
+import newsApi from "./news/apiHandler.js"
+import newsRenderDom from "./news/newsEntryDom.js"
 
 ///// EVENTS SECTION (author: Caroline Brownlee) /////
 import activateEvents from "./events/eventFunctionHandler"
@@ -70,6 +72,17 @@ API.getMessages()
 
 EventListeners.registerAddListener()
 
+<<<<<<< HEAD
 eventsToDomFunctions.getAllEventsToDom()
 activateEvents()
 
+=======
+
+// News Section
+newsApi.getArticleEntries()
+  .then(response => newsRenderDom.renderArticleEntries(response))
+
+// newsRenderDom.renderArticleEntries()
+
+  
+>>>>>>> master
