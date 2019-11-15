@@ -1,23 +1,30 @@
+/* ((((author: Caroline Brownlee)))) */
 import makeEventComponent from "./eventsHtmlComponent"
 import API from "./eventsApiHandler"
 
+
 const eventsToDomFunctions = {
-    
+    // function that gets all events to the dom
     getAllEventsToDom() {
         API.getAllEvents().then(parsedEvents => {
-            // iterates over the array in the database, and for each entry,
+            // grabs the id on the eventListContainer and stores it into a variable
             const eventsListContainer = document.querySelector("#eventsListContainer")
+            // clears the eventsListContainer
             eventsListContainer.innerHTML = ""
+            // iterates over the array in the database, and for each event,
             parsedEvents.forEach(event => {
-                // invokes makeJournalEntryComponent, taking each key and its value as an argument, and stores the returned string in a variable.
+                // invokes makeEventComponent, taking each event as an argument, stores it into a variable
                 const eventHtml = makeEventComponent(event)
-                // Finally, the function is invoked that takes the above variable as an argument and puts each entry on the dom.
+                // takes each event stored in eventHtml and sticks it in the eventsListContainer
                 eventsListContainer.innerHTML += eventHtml
             })
         })
     },
+    // function that takes an event as an argument
     eventsToDom(event) {
+        // grabs the id on eventsFormContainer
         const eventsFormContainer = document.querySelector("#eventsFormContainer")
+        // and renders that event to the dom
         eventsFormContainer.innerHTML = event
     }
 

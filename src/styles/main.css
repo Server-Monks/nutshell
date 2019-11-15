@@ -1,3 +1,6 @@
+/* EVENTS SECTION (author: Caroline Brownlee */
+
+/* CSS that changes styling on the first section in the eventsListContainer */
 #eventHtml:first-child {
     background-color: rosybrown;
     font-weight: bold; 

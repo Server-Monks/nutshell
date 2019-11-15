@@ -1,3 +1,6 @@
+/* ((((author: Caroline Brownlee)))) */
+
+// html for newEventForm
 const newEventForm = () => {
     return `
         <h1><u>EVENTS</u></h1>
