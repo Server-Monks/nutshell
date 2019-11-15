@@ -37,17 +37,8 @@ import attachSearchEvent from "./messages/messagesHandler.js"
 import doThaThang from "./messages/eventHandler"
 
 API.getMessages()
-    .then(messages => {
-        renderDom.renderMessages(messages)
-
-        attachSearchEvent();
-    })
-
-
-
-    API.getMessages().then(renderDom)
-    // write function to append appropriate entries based on mood selected by radio button
-    
-    // Invoke the method that attaches the event listener
-    doThaThang.registerDeleteListener()
-    doThaThang.registerEditListener()
+.then(messages => {
+renderDom.renderMessages(messages)
+doThaThang.registerDeleteListener()
+doThaThang.registerEditListener()
+})
