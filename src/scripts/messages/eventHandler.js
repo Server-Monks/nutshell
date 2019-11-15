@@ -2,6 +2,13 @@ import API from "./apiHandler"
 import renderDom from "./domHandler"
 
 const messageLog = document.querySelector("#messageContainer")
+
+const newMessage = (text) => {
+    return {
+        "message": text
+    }
+}
+
 const doThaThang = {
     registerDeleteListener() {
         messageLog.addEventListener("click", event => {
@@ -35,7 +42,7 @@ const doThaThang = {
         })
     },
 
-    registerSaveListener() {
+    registerSaveEditListener() {
         let saveButton = document.querySelector("#saveButton")
         saveButton.addEventListener("click", () => {
             const hiddenMessageId = document.querySelector("#messageId").value
@@ -44,6 +51,18 @@ const doThaThang = {
                     .then(API.getMessages)
                     .then(messages => renderDom.renderMessages(messages))
             }
+        })
+    },
+
+    attachSaveEvent() {
+        const messageInputButton = document.querySelector("#submitButton")
+        messageInputButton.addEventListener("click", () => {
+            const textInput = document.querySelector("#exampleFormControlTextarea1").value
+            const messageObject = newMessage(textInput)
+            messageObject.userId = parseInt(sessionStorage.getItem("activeUser"))
+            API.postMessages(messageObject)
+                .then(API.getMessages)
+                .then(renderDom.renderMessages)
         })
     }
 }
