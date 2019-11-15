@@ -1,4 +1,5 @@
 import messageManager from "./domComponents.js"
+import doThaThang from "./eventHandler.js"
 
 const renderDom = {
   renderMessages(messages) {
@@ -14,6 +15,8 @@ const renderDom = {
 
     const logArticle = document.querySelector("#insertMessagesHere")
     logArticle.innerHTML = htmlForAllMessages
+
+    doThaThang.attachSaveEvent()
   }
 }
 

@@ -2,7 +2,7 @@ const url = "http://localhost:8088/events"
 
 const API = {
     getAllEvents() {
-        return fetch(`${url}`)
+        return fetch(`${url}?_sort=date&_order=asc`)
             .then(response => response.json())
     },
     saveNewEvent(eventObject) {

@@ -10,7 +10,7 @@ const newEventForm = () => {
             </div>
             <div class="form-group">
                 <label for="event">Date: </label>
-                <input type="text" class="form-control" id="eventDate" placeholder="enter date of event">
+                <input type="date" class="form-control" id="eventDate" placeholder="enter date of event">
             </div>
             <div class="form-group">
                 <label for="event">Location: </label>

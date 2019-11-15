@@ -10,13 +10,10 @@ import registerDeleteListener from "./news/deleteEventHandler"
 ///// EVENTS SECTION (author: Caroline Brownlee) /////
 import activateEvents from "./events/eventFunctionHandler"
 
-
-
-
 import loginRegClick from "./auth/eventHandler"
-import renderDom from "./messages/domHandler.js"
+
 import API from "./messages/apiHandler.js"
-import attachSearchEvent from "./messages/messagesHandler.js"
+import renderDom from "./messages/domHandler.js"
 import doThaThang from "./messages/eventHandler"
 
 
@@ -73,22 +70,18 @@ mainContainer.innerHTML += landingPage
 //     .then(messages => renderDom.renderMessages(messages))
 
 API.getMessages()
-    .then(messages => {
-        renderDom.renderMessages(messages)
+.then(messages => {
+renderDom.renderMessages(messages)
+doThaThang.registerDeleteListener()
+doThaThang.registerEditListener()
 
-        attachSearchEvent();
-    })
+})
 
 
-
-    API.getMessages().then(renderDom)
-    // write function to append appropriate entries based on mood selected by radio button
+    // API.getMessages().then(renderDom)
     
     // Invoke the method that attaches the event listener
-    doThaThang.registerDeleteListener()
-    doThaThang.registerEditListener()
     
-    // Get all recipes from API and render them in the DOM
     
 
 EventListeners.registerAddListener()
