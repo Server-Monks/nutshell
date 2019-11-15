@@ -9,13 +9,10 @@ import registerEventListener from "./news/newsEventListeners"
 ///// EVENTS SECTION (author: Caroline Brownlee) /////
 import activateEvents from "./events/eventFunctionHandler"
 
-
-
-
 import loginRegClick from "./auth/eventHandler"
-import renderDom from "./messages/domHandler.js"
+
 import API from "./messages/apiHandler.js"
-import saveObject from "./messages/messagesHandler.js"
+import renderDom from "./messages/domHandler.js"
 import doThaThang from "./messages/eventHandler"
 
 
@@ -73,21 +70,17 @@ mainContainer.innerHTML += landingPage
 
 API.getMessages()
 .then(messages => {
-    renderDom.renderMessages(messages)
-    
+renderDom.renderMessages(messages)
+doThaThang.registerDeleteListener()
+doThaThang.registerEditListener()
+
 })
 
 
-
     // API.getMessages().then(renderDom)
-    // write function to append appropriate entries based on mood selected by radio button
     
     // Invoke the method that attaches the event listener
-    doThaThang.registerDeleteListener()
-    doThaThang.registerEditListener()
     
-    saveObject.attachSaveEvent();
-    // Get all recipes from API and render them in the DOM
     
 
 EventListeners.registerAddListener()
