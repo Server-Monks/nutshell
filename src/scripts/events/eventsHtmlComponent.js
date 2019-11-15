@@ -1,3 +1,6 @@
+/* ((((author: Caroline Brownlee)))) */
+
+// function that takes a single event from the database as an argument and makes an html component for that event
 const makeEventComponent = (event) => {
     return `
         <section id="eventHtml" class="eventHTML--${event.id}">

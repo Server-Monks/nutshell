@@ -1,75 +1,40 @@
-import EventListeners from "./tasks/eventHandler"
+/// AUTHENTICATION SECTION (authors: Caroline Brownlee, Christian Pippin, Julian Garcia, and Corri Golden) /////
 import formElements from "./auth/domHandler"
-// import loginRegClick from "./auth/eventHandler"
-import newsFormElements from "./news/newsDomHandler.js"
-import newsApi from "./news/newsApiHandler.js"
-import newsRenderDom from "./news/newsEntryDom.js"
-import registerEventListener from "./news/newsEventListeners"
+
+sessionStorage.setItem("activeUser", 1)
+let currentUser = sessionStorage.getItem("activeUser")
+console.log(currentUser)
+const landingPage = formElements.regButtons()
+const mainContainer = document.querySelector("#container")
+mainContainer.innerHTML += landingPage
 
 ///// EVENTS SECTION (author: Caroline Brownlee) /////
 import activateEvents from "./events/eventFunctionHandler"
+import eventsToDomFunctions from "./events/eventsDomHandler"
 
+eventsToDomFunctions.getAllEventsToDom()
+activateEvents()
 
+///// NEWS SECTION (author: Corri Golden)
+import newsApi from "./news/newsApiHandler.js"
+import newsRenderDom from "./news/newsEntryDom.js"
+import registerEventListener from "./news/newsEventListeners"
+import newsFormElements from "./news/newsDomHandler.js"
 
+newsApi.getArticleEntries()
+.then(response => newsRenderDom.renderArticleEntries(response))
+registerEventListener()
 
-import loginRegClick from "./auth/eventHandler"
+///// TASKS SECTION (author: Julian Garcia) /////
+import taskForm from "./tasks/domHandler.js"
+import EventListeners from "./tasks/eventHandler"
+EventListeners.registerAddListener()
+
+///// MESSAGES SECTION (author: Christian Pippin) /////
 import renderDom from "./messages/domHandler.js"
 import API from "./messages/apiHandler.js"
 import attachSearchEvent from "./messages/messagesHandler.js"
 import doThaThang from "./messages/eventHandler"
-
-
-import taskForm from "./tasks/domHandler.js"
-import eventsToDomFunctions from "./events/eventsDomHandler"
-
-
-
-sessionStorage.setItem("activeUser", 1)
-
-let currentUser = sessionStorage.getItem("activeUser")
-console.log(currentUser)
-
-/*
-    Import all the tools into main.js that are needed to display
-    the initial UI to the user. Either the login form should appear
-    or the dashboard should be rendered.
-*/
-
-const mainContainer = document.querySelector("#container")
-
-// const welcome = formElements.welcomeTitle()
-
-// const registration = formElements.RegForm()
-
-// mainContainer.innerHTML += welcome
-
-// mainContainer.innerHTML += registration
-
-const landingPage = formElements.regButtons()
-mainContainer.innerHTML += landingPage
-
-
-// const sessionStorage.setItem("activeUser", user.id)
-// console.log(sessionStorage)
-
-
-
-
-
-
-
-
-
-
-
-// loginRegClick()
-// mainContainer.innerHTML += formHtml
-
-// mainContainer.innerHTML += registration
-// loginRegClick()
-
-// API.getMessages()
-//     .then(messages => renderDom.renderMessages(messages))
 
 API.getMessages()
     .then(messages => {
@@ -86,23 +51,3 @@ API.getMessages()
     // Invoke the method that attaches the event listener
     doThaThang.registerDeleteListener()
     doThaThang.registerEditListener()
-    
-    // Get all recipes from API and render them in the DOM
-    
-
-EventListeners.registerAddListener()
-
-eventsToDomFunctions.getAllEventsToDom()
-activateEvents()
-
-
-// News Section
-newsApi.getArticleEntries()
-  .then(response => newsRenderDom.renderArticleEntries(response))
-
-// newsRenderDom.renderArticleEntries()
-registerEventListener()
-   
-    
-
-  

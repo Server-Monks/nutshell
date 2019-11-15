@@ -1,7 +1,10 @@
+/* ((((author: Caroline Brownlee)))) */
 const url = "http://localhost:8088/events"
 
 const API = {
+    // gets all events and renders them to the dom...
     getAllEvents() {
+        // in sorted order ascending by date
         return fetch(`${url}?_sort=date&_order=asc`)
             .then(response => response.json())
     },
