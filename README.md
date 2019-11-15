@@ -8,7 +8,17 @@
 1. Run `npm install` and wait for all dependencies to be installed
 1. Run `npm start` to verify that installation was successful.
 
-## Instructions
+This dashboard contains thge features to where you can find you friends and the activities they are doing such as events and messages. You may be able to add friends and or delete friends off your dashboard. 
+
+Instructions
+
+please create a user on the login form if you have not yet
+
+on the dashboard please look around as your have other features such as the ability to share news or even tag friends or people to an upcoming event.
+
+V2 should look smoother.
+
+<!-- ## Instructions
 
 Nutshell is a new product offering that you have been tasked with building. It's a dashboard for people to use to organize their daily tasks, events, news article, friends, and chat messages.
 
@@ -110,4 +120,4 @@ To help you along, here is a visualization of a few features, as envisioned by o
    * Use plenty of headings
    * Short paragraphs
    * Bulleted lists
-7. Strive for consistency.
+7. Strive for consistency. -->
