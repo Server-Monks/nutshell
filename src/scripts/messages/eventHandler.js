@@ -3,9 +3,10 @@ import renderDom from "./domHandler"
 
 const messageLog = document.querySelector("#messageContainer")
 
-const newMessage = (text) => {
+const newMessage = (text, time) => {
     return {
-        "message": text
+        "message": text,
+        "time": time
     }
 }
 
@@ -46,7 +47,7 @@ const doThaThang = {
         let saveButton = document.querySelector("#saveButton")
         saveButton.addEventListener("click", () => {
             const hiddenMessageId = document.querySelector("#messageId").value
-        if (hiddenMessageId !== "") {
+            if (hiddenMessageId !== "") {
                 API.editCard(hiddenMessageId)
                     .then(API.getMessages)
                     .then(messages => renderDom.renderMessages(messages))
@@ -59,6 +60,8 @@ const doThaThang = {
         messageInputButton.addEventListener("click", () => {
             const textInput = document.querySelector("#exampleFormControlTextarea1").value
             const messageObject = newMessage(textInput)
+            const date = new Date();
+            messageObject.time = date.getTime();
             messageObject.userId = parseInt(sessionStorage.getItem("activeUser"))
             API.postMessages(messageObject)
                 .then(API.getMessages)

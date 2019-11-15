@@ -25,7 +25,7 @@ const messageManager = {
             <div class="card-body">
                 <h5 class="card-title">${messageCard.userId}</h5>
                 <p class="card-text">${messageCard.message}</p>
-                <p class="card-date">${messageCard.date}</p>
+                <p class="card-time">${messageCard.time}</p>
                 <a href="#" class="btn btn-primary" id="deleteCard--${messageCard.id}">Delete</a>
                 <a href="#" class="btn btn-primary" id="editCard--${messageCard.id}">Edit</a>
             </div>
