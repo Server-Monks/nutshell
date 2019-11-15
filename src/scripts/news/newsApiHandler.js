@@ -17,7 +17,7 @@ const API = {
     })
   },
   deleteEntry(id) {                                                     //function for deleting a single entry
-    return fetch(`http://localhost:3000/entries/${id}`, {
+    return fetch(`http://localhost:8088/news/${id}`, {
       method: "DELETE"
     })
       .then(response => response.json())

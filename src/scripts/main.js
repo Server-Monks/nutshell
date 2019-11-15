@@ -5,6 +5,7 @@ import newsFormElements from "./news/newsDomHandler.js"
 import newsApi from "./news/newsApiHandler.js"
 import newsRenderDom from "./news/newsEntryDom.js"
 import registerEventListener from "./news/newsEventListeners"
+import registerDeleteListener from "./news/deleteEventHandler"
 
 ///// EVENTS SECTION (author: Caroline Brownlee) /////
 import activateEvents from "./events/eventFunctionHandler"
@@ -102,6 +103,7 @@ newsApi.getArticleEntries()
 
 // newsRenderDom.renderArticleEntries()
 registerEventListener()
+registerDeleteListener()
    
     
 

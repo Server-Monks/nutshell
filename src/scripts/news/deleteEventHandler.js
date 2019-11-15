@@ -1,5 +1,5 @@
 import newsRenderDom from "./newsEntryDom.js"
-import newsApi from "./news/newsApiHandler.js"
+import newsApi from "./newsApiHandler.js"
 
 
 
@@ -10,13 +10,16 @@ const registerDeleteListener = () => {
         console.log(event)                //using a method to add eventListener
         if (event.target.id.startsWith("deleteButton--")) {           //condition for if the startswith ***
             // Extract delete id from the button's id attribute
-            const entryIDToDelete = event.target.id.split("--")[1]       
-            // console.log(entryIDToDelete)
+            const entryIDToDelete = event.target.id.split("--")[1]
+            console.log(entryIDToDelete)
 
-            // Invoke the delete method, then get all recipes and render them
-            dEntry.deleteEntry(entryIDToDelete)              //performing the the delete entry function on from API
-                .then(newsApi.getArticlesEntries)                 //get the non deleted journal entries 
-                .then(response => newsRenderDom.renderArticleEntries(response)) 
+            // Invoke the delete method
+            newsApi.deleteEntry(entryIDToDelete)              //performing the the delete entry function on from API
+                .then(newsApi.getArticleEntries)
+                .then(newsRenderDom.renderArticleEntries)
         }
     })
 }
+
+
+export default registerDeleteListener

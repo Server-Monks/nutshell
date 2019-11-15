@@ -23,12 +23,14 @@ const registerEventListener = () => {                      //creating a function
     document.querySelector("#addBtn").addEventListener("click", function () {
         const newArticleEntry = entryManager.createArticleObj(
             document.querySelector("#titleInput").value,
-            document.querySelector("#descriptionInput").value,
             document.querySelector("#urlInput").value,
+            document.querySelector("#synopsisInput").value,
+            document.querySelector("#dateInput").value,
             )
-        console.log(newArticleEntry);
+        // console.log(newArticleEntry);
         API.postEntry(newArticleEntry)
-        .then(API.getArticleEntries).then(newsRenderDom.renderArticleEntries)
+        .then(API.getArticleEntries)
+        .then(newsRenderDom.renderArticleEntries)
         // API.postEntry(newJournalEntries)
         // .then(API.getJournalEntries).then(renderDom.renderJournalEntries)
     })
