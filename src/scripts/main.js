@@ -15,15 +15,18 @@ import eventsToDomFunctions from "./events/eventsDomHandler"
 eventsToDomFunctions.getAllEventsToDom()
 activateEvents()
 
+
 ///// NEWS SECTION (author: Corri Golden)
 import newsApi from "./news/newsApiHandler.js"
 import newsRenderDom from "./news/newsEntryDom.js"
 import registerEventListener from "./news/newsEventListeners"
+import registerDeleteListener from "./news/deleteEventHandler"
 import newsFormElements from "./news/newsDomHandler.js"
 
 newsApi.getArticleEntries()
 .then(response => newsRenderDom.renderArticleEntries(response))
 registerEventListener()
+registerDeleteListener()
 
 ///// TASKS SECTION (author: Julian Garcia) /////
 import taskForm from "./tasks/domHandler.js"
@@ -42,3 +45,17 @@ renderDom.renderMessages(messages)
 doThaThang.registerDeleteListener()
 doThaThang.registerEditListener()
 })
+
+
+
+
+
+
+
+
+
+
+   
+    
+
+  

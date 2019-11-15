@@ -7,16 +7,20 @@ const newsFormElements = {
       <div class="jumbotron">
       <h1 class="display-4">Interesting Finds!</h1>
       <section>
-        <label id="titleInput" for="memeName">Title</label>
-        <input type="text" id="name-input">
+        <label for="titleInput" for="id">Title</label>
+        <input id="titleInput" type="text" id="name-input">
       </section>
       <section>
-        <label for="articleDescription">Description</label>
-        <input id="descriptionInput" type="text" id="desc-input">
+        <label for="urlInput" for="url">URL</label>
+        <input id="urlInput" type="text" id="name-input">
       </section>
       <section>
-        <label for="articleImageUrl">Article URL</label>
-        <input id="urlInput" type="text" id="image-input">
+        <label for="synopsis" for"synopsis">Synopsis</label>
+        <input id="synopsisInput" type="text" id="desc-input">
+      </section>
+      <section>
+        <label for="dateInput">Date</label>
+        <input id="dateInput" type="text" id="image-input">
       </section>
       <hr class="my-4">
       <p class="lead">
@@ -32,7 +36,7 @@ const newsRenderDom = document.querySelector("#container2")
 newsRenderDom.innerHTML += newsFormElements.newsPage()
 
 
-registerEventListener()
+// registerEventListener()
 
 export default newsFormElements
 
