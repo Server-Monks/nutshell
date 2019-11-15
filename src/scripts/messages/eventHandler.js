@@ -3,9 +3,10 @@ import renderDom from "./domHandler"
 
 const messageLog = document.querySelector("#messageContainer")
 
-const newMessage = (text) => {
+const newMessage = (text, time) => {
     return {
-        "message": text
+        "message": text,
+        "time": time
     }
 }
 
@@ -59,6 +60,7 @@ const doThaThang = {
         messageInputButton.addEventListener("click", () => {
             const textInput = document.querySelector("#exampleFormControlTextarea1").value
             const messageObject = newMessage(textInput)
+            
             messageObject.userId = parseInt(sessionStorage.getItem("activeUser"))
             API.postMessages(messageObject)
                 .then(API.getMessages)
