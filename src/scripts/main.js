@@ -1,12 +1,7 @@
-/// AUTHENTICATION SECTION (authors: Caroline Brownlee, Christian Pippin, Julian Garcia, and Corri Golden) /////
-import formElements from "./auth/domHandler"
+/// LOGIN AND REGISTRATION (authors: Caroline Brownlee, Christian Pippin, Julian Garcia, and Corri Golden) /////
+import registration from "./auth/registrationFunctionHandler"
 
-sessionStorage.setItem("activeUser", 1)
-let currentUser = sessionStorage.getItem("activeUser")
-console.log(currentUser)
-const landingPage = formElements.regButtons()
-const mainContainer = document.querySelector("#container")
-mainContainer.innerHTML += landingPage
+registration()
 
 ///// EVENTS SECTION (author: Caroline Brownlee) /////
 import activateEvents from "./events/eventFunctionHandler"
@@ -38,6 +33,8 @@ import renderDom from "./messages/domHandler.js"
 import API from "./messages/apiHandler.js"
 import attachSearchEvent from "./messages/messagesHandler.js"
 import doThaThang from "./messages/eventHandler"
+
+
 
 API.getMessages()
 .then(messages => {
